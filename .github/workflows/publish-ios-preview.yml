@@ -1,0 +1,64 @@
+name: Publish verified iPhone preview
+on:
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      BUILD_RUN: '42635436689'
+      BUILD_COMMIT: '68120bb7b25a87b3612c46eab83131bdea800864'
+      PREVIEW_TAG: ios-preview-v0.1.0
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify successful build and download exact device artifact
+        shell: bash
+        run: |
+          gh run view "$BUILD_RUN" --json conclusion,headSha > run.json
+          python3 - <<'PY'
+          import json, os
+          run = json.load(open('run.json'))
+          assert run['conclusion'] == 'success'
+          assert run['headSha'] == os.environ['BUILD_COMMIT']
+          PY
+          gh run download "$BUILD_RUN" -n ios-unsigned-ipa-for-local-signing -D release
+          cd release
+          echo '837e10caf60f9a667f034260850718db861c755f6296580ad1f2604115ce160f  study-trainer-unsigned.ipa' | sha256sum -c -
+          mv study-trainer-unsigned.ipa study-trainer-ios-unsigned.ipa
+          sha256sum study-trainer-ios-unsigned.ipa > SHA256SUMS.txt
+      - name: Publish downloadable preview
+        shell: bash
+        run: |
+          cat > release-notes.md <<'NOTES'
+          Study Trainer for iPhone: import PGN or Lichess studies, practice either side, and save spaced-repetition progress offline. Independent GPL engineering preview; not affiliated with Lichess.
+
+          **Windows + AltStore Classic + a free Apple account.** Requires iOS 15+. No Mac or paid Apple Developer membership needed. AltStore signs this unsigned IPA locally for your iPhone. Refresh signing every seven days through AltServer. Downloading the IPA alone does not install it.
+
+          [Windows installation guide](https://github.com/siirty/lichess-study-trainer/blob/main/docs/install-iphone-windows.md)
+
+          After installing AltStore Classic, add this source and choose Study Trainer → FREE:
+
+          ```text
+          https://raw.githubusercontent.com/siirty/lichess-study-trainer/main/altstore-source.json
+          ```
+
+          Alternatively download the IPA to Files on the iPhone, then select it in AltStore Classic → My Apps → +. Enter Apple credentials only on your own devices.
+
+          Passed: iPhoneOS arm64 release build; native iPhone simulator flow covering keychain, PGN import, actual board taps, hint grading, SQLite save/reopen and backup restore; 43 package/widget tests. [Native build/test evidence](https://github.com/siirty/lichess-study-trainer/actions/runs/42635436689).
+
+          Physical iPhone installation, live OAuth callbacks and platform picker dialogs still require device verification. Export training backups regularly and before uninstalling. See [preview limitations](https://github.com/siirty/lichess-study-trainer/blob/main/docs/limitations.md).
+
+          Version 0.1.0 (1), org.studytrainer.standalone. Exact device artifact compiled from 68120bb7b25a87b3612c46eab83131bdea800864; not a simulator app.
+
+          SHA-256: 837e10caf60f9a667f034260850718db861c755f6296580ad1f2604115ce160f
+          NOTES
+          if ! gh release view "$PREVIEW_TAG" >/dev/null 2>&1; then
+            gh release create "$PREVIEW_TAG" --target "$BUILD_COMMIT" --title 'Study Trainer for iPhone — v0.1.0 preview' --prerelease --draft --notes-file release-notes.md
+          fi
+          gh release upload "$PREVIEW_TAG" release/study-trainer-ios-unsigned.ipa release/SHA256SUMS.txt --clobber
+          gh release edit "$PREVIEW_TAG" --draft=false --prerelease --notes-file release-notes.md
