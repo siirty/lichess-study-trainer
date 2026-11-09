@@ -40,7 +40,7 @@ jobs:
         run: flutter build ios --release --no-codesign
       - name: Save unsigned device application
         run: ditto -c -k --sequesterRsrc --keepParent apps/standalone/build/ios/iphoneos/Runner.app ios-device-unsigned.zip
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: ios-device-unsigned
           path: ios-device-unsigned.zip
@@ -58,7 +58,7 @@ jobs:
               assert info['CFBundleIdentifier'] == 'org.studytrainer.standalone'
               assert 'Payload/Runner.app/Runner' in archive.namelist()
           PYIPA
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: ios-unsigned-ipa-for-local-signing
           path: build/study-trainer-unsigned.ipa
@@ -88,7 +88,7 @@ jobs:
         run: flutter build ios --simulator --debug
       - name: Save simulator application
         run: ditto -c -k --sequesterRsrc --keepParent apps/standalone/build/ios/iphonesimulator/Runner.app ios-simulator.zip
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: ios-simulator
           path: ios-simulator.zip
