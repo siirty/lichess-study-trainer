@@ -161,9 +161,9 @@ class _TrainingBoardState extends State<TrainingBoard> {
     try {
       await widget.onAttemptChanged?.call(evidence);
       return mounted && epoch == generation;
-    } catch (e) {
+    } catch (_) {
       if (mounted && epoch == generation)
-        setState(() => feedback = '${widget.strings.attemptError}: $e');
+        setState(() => feedback = widget.strings.attemptError);
       return false;
     } finally {
       if (mounted && epoch == generation) setState(() => busy = false);
@@ -189,9 +189,9 @@ class _TrainingBoardState extends State<TrainingBoard> {
     try {
       await widget.onComplete(evidence.rating);
       if (mounted && epoch == generation) saved = true;
-    } catch (e) {
+    } catch (_) {
       if (mounted && epoch == generation)
-        setState(() => feedback = '${widget.strings.saveError}: $e');
+        setState(() => feedback = widget.strings.saveError);
     } finally {
       if (mounted && epoch == generation) setState(() => busy = false);
     }
