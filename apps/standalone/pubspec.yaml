@@ -1,0 +1,33 @@
+name: study_trainer
+publish_to: none
+version: 0.1.0+1
+environment:
+  sdk: ^3.13.0
+dependencies:
+  flutter_appauth: ^13.0.0
+  flutter_secure_storage: ^11.2.0
+  flutter:
+    sdk: flutter
+  trainer_lichess:
+    path: ../../packages/trainer_lichess
+  trainer_core:
+    path: ../../packages/trainer_core
+  trainer_flutter:
+    path: ../../packages/trainer_flutter
+  trainer_storage:
+    path: ../../packages/trainer_storage
+  dartchess: ^0.15.0
+  sqflite: ^2.4.2
+  sqflite_common_ffi: ^2.3.6
+  path_provider: ^2.1.5
+  http: ^1.5.0
+  file_picker: ^13.3.2
+  path: ^1.9.1
+dev_dependencies:
+  integration_test:
+    sdk: flutter
+  chessground: ^11.1.0
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true

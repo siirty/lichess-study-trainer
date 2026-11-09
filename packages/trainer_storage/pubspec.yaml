@@ -1,0 +1,12 @@
+name: trainer_storage
+version: 0.1.0
+publish_to: none
+environment:
+  sdk: ^3.10.0
+dependencies:
+  sqflite_common: ^2.5.6
+  trainer_core:
+    path: ../trainer_core
+dev_dependencies:
+  test: ^1.25.0
+  sqflite_common_ffi: ^2.3.6

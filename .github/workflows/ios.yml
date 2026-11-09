@@ -1,0 +1,85 @@
+name: iOS build and native smoke test
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: ios-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  ios:
+    runs-on: macos-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.47.9'
+          channel: stable
+          cache: true
+      - name: Record native toolchain
+        run: xcodebuild -version && flutter --version && xcrun simctl list runtimes
+      - name: Resolve dependencies
+        working-directory: apps/standalone
+        run: flutter pub get
+      - name: Build iPhone application without signing
+        working-directory: apps/standalone
+        run: flutter build ios --release --no-codesign
+      - name: Save unsigned device application
+        run: ditto -c -k --sequesterRsrc --keepParent apps/standalone/build/ios/iphoneos/Runner.app ios-device-unsigned.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ios-device-unsigned
+          path: ios-device-unsigned.zip
+          retention-days: 7
+      - name: Package unsigned IPA for local Windows signing
+        shell: bash
+        run: |
+          mkdir -p build/ios-sideload/Payload
+          ditto apps/standalone/build/ios/iphoneos/Runner.app build/ios-sideload/Payload/Runner.app
+          (cd build/ios-sideload && ditto -c -k --sequesterRsrc --keepParent Payload ../study-trainer-unsigned.ipa)
+          python3 - <<'PYIPA'
+          import plistlib, zipfile
+          with zipfile.ZipFile('build/study-trainer-unsigned.ipa') as archive:
+              info = plistlib.loads(archive.read('Payload/Runner.app/Info.plist'))
+              assert info['CFBundleIdentifier'] == 'org.studytrainer.standalone'
+              assert 'Payload/Runner.app/Runner' in archive.namelist()
+          PYIPA
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ios-unsigned-ipa-for-local-signing
+          path: build/study-trainer-unsigned.ipa
+          retention-days: 14
+      - name: Select and boot an iPhone simulator
+        id: simulator
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, os, subprocess
+          data = json.loads(subprocess.check_output(['xcrun', 'simctl', 'list', 'devices', 'available', '--json']))
+          choices = [d for runtime, devices in data['devices'].items() if 'iOS' in runtime for d in devices if d.get('isAvailable') and 'iPhone' in d['name']]
+          if not choices:
+              raise SystemExit('No installed iPhone simulator runtime')
+          device = next((d for d in choices if d['state'] == 'Booted'), choices[0])
+          if device['state'] != 'Booted':
+              subprocess.check_call(['xcrun', 'simctl', 'boot', device['udid']])
+          subprocess.check_call(['xcrun', 'simctl', 'bootstatus', device['udid'], '-b'])
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('udid=' + device['udid'] + '\n')
+          PY
+      - name: Run real iOS plugin and board flow
+        working-directory: apps/standalone
+        run: flutter test integration_test/native_app_test.dart -d '${{ steps.simulator.outputs.udid }}' --timeout 8m
+      - name: Build simulator application
+        working-directory: apps/standalone
+        run: flutter build ios --simulator --debug
+      - name: Save simulator application
+        run: ditto -c -k --sequesterRsrc --keepParent apps/standalone/build/ios/iphonesimulator/Runner.app ios-simulator.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ios-simulator
+          path: ios-simulator.zip
+          retention-days: 7

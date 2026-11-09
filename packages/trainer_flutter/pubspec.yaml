@@ -1,0 +1,15 @@
+name: trainer_flutter
+version: 0.1.0
+publish_to: none
+environment:
+  sdk: ^3.10.0
+dependencies:
+  flutter:
+    sdk: flutter
+  chessground: ^11.1.0
+  dartchess: ^0.15.0
+  trainer_core:
+    path: ../trainer_core
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

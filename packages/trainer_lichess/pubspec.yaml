@@ -1,0 +1,9 @@
+name: trainer_lichess
+publish_to: none
+version: 0.1.0
+environment:
+  sdk: ^3.10.0
+dependencies:
+  http: ^1.5.0
+dev_dependencies:
+  test: ^1.25.0

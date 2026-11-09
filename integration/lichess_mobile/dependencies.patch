@@ -1,0 +1,15 @@
+diff --git a/pubspec.yaml b/pubspec.yaml
+index 7b15494..92e124f 100644
+--- a/pubspec.yaml
++++ b/pubspec.yaml
+@@ -10,6 +10,10 @@ environment:
+   flutter: 3.47.9
+ 
+ dependencies:
++  trainer_core:
++    path: ../trainer/packages/trainer_core
++  trainer_flutter:
++    path: ../trainer/packages/trainer_flutter
+   app_links: ^7.2.2
+   app_settings: ^9.0.1
+   async: ^2.13.1
