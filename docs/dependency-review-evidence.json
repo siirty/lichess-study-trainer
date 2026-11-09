@@ -1,0 +1,1878 @@
+{
+  "reviewDate": "2026-11-09",
+  "sourceCommit": "a10308e",
+  "releasedAppCommit": "68120bb7b25a87b3612c46eab83131bdea800864",
+  "registryPackages": [
+    {
+      "name": "flutter_appauth",
+      "locked": [
+        "13.0.0"
+      ],
+      "latest": "13.0.0",
+      "published": "2026-10-30T22:18:33.017928Z",
+      "repository": "https://github.com/MaikuB/flutter_appauth/tree/master/flutter_appauth",
+      "discontinued": false,
+      "score": {
+        "grantedPoints": 160,
+        "maxPoints": 160,
+        "likeCount": 433,
+        "downloadCount30Days": 464082,
+        "tags": [
+          "publisher:dexterx.dev",
+          "sdk:flutter",
+          "platform:android",
+          "platform:ios",
+          "platform:macos",
+          "is:plugin",
+          "is:null-safe",
+          "is:wasm-ready",
+          "is:swiftpm-plugin",
+          "is:built-in-kotlin",
+          "is:dart3-compatible",
+          "license:bsd-3-clause",
+          "license:fsf-libre",
+          "license:osi-approved"
+        ]
+      }
+    },
+    {
+      "name": "flutter_secure_storage",
+      "locked": [
+        "11.2.0"
+      ],
+      "latest": "11.2.0",
+      "published": "2026-09-16T11:48:19.409417Z",
+      "repository": "https://github.com/mogol/flutter_secure_storage/tree/develop/flutter_secure_storage",
+      "discontinued": false,
+      "score": {
+        "grantedPoints": 160,
+        "maxPoints": 160,
+        "likeCount": 4510,
+        "downloadCount30Days": 6011570,
+        "tags": [
+          "publisher:steenbakker.dev",
+          "sdk:flutter",
+          "platform:android",
+          "platform:ios",
+          "platform:windows",
+          "platform:linux",
+          "platform:macos",
+          "platform:web",
+          "is:plugin",
+          "is:null-safe",
+          "is:wasm-ready",
+          "is:swiftpm-plugin",
+          "is:built-in-kotlin",
+          "is:dart3-compatible",
+          "license:bsd-3-clause",
+          "license:fsf-libre",
+          "license:osi-approved"
+        ]
+      }
+    },
+    {
+      "name": "dartchess",
+      "locked": [
+        "0.15.0"
+      ],
+      "latest": "0.15.0",
+      "published": "2026-11-05T09:28:35.159417Z",
+      "repository": "https://github.com/lichess-org/dartchess",
+      "discontinued": false,
+      "score": {
+        "grantedPoints": 150,
+        "maxPoints": 160,
+        "likeCount": 14,
+        "downloadCount30Days": 5144,
+        "tags": [
+          "publisher:lichess.org",
+          "has:funding-link",
+          "sdk:dart",
+          "sdk:flutter",
+          "platform:android",
+          "platform:ios",
+          "platform:windows",
+          "platform:linux",
+          "platform:macos",
+          "runtime:native-aot",
+          "runtime:native-jit",
+          "runtime:web",
+          "is:null-safe",
+          "is:wasm-ready",
+          "is:dart3-compatible",
+          "license:gpl-3.0",
+          "license:fsf-libre",
+          "license:osi-approved"
+        ]
+      }
+    },
+    {
+      "name": "fsrs",
+      "locked": [
+        "2.0.1"
+      ],
+      "latest": "2.0.1",
+      "published": "2025-06-20T05:53:51.727985Z",
+      "repository": "https://github.com/open-spaced-repetition/dart-fsrs",
+      "discontinued": false,
+      "score": {
+        "grantedPoints": 160,
+        "maxPoints": 160,
+        "likeCount": 22,
+        "downloadCount30Days": 16873,
+        "tags": [
+          "sdk:dart",
+          "sdk:flutter",
+          "platform:android",
+          "platform:ios",
+          "platform:windows",
+          "platform:linux",
+          "platform:macos",
+          "platform:web",
+          "runtime:native-aot",
+          "runtime:native-jit",
+          "runtime:web",
+          "is:null-safe",
+          "is:wasm-ready",
+          "is:dart3-compatible",
+          "license:mit",
+          "license:fsf-libre",
+          "license:osi-approved"
+        ]
+      }
+    },
+    {
+      "name": "chessground",
+      "locked": [
+        "11.1.0"
+      ],
+      "latest": "11.1.0",
+      "published": "2026-11-05T09:42:02.935138Z",
+      "repository": "https://github.com/lichess-org/flutter-chessground",
+      "discontinued": false,
+      "score": {
+        "grantedPoints": 160,
+        "maxPoints": 160,
+        "likeCount": 22,
+        "downloadCount30Days": 4869,
+        "tags": [
+          "publisher:lichess.org",
+          "has:funding-link",
+          "sdk:flutter",
+          "platform:android",
+          "platform:ios",
+          "platform:windows",
+          "platform:linux",
+          "platform:macos",
+          "is:null-safe",
+          "is:wasm-ready",
+          "is:dart3-compatible",
+          "license:gpl-3.0",
+          "license:fsf-libre",
+          "license:osi-approved"
+        ]
+      }
+    },
+    {
+      "name": "sqflite",
+      "locked": [
+        "2.4.5"
+      ],
+      "latest": "2.4.5",
+      "published": "2026-10-21T14:07:10.037023Z",
+      "repository": "https://github.com/tekartik/sqflite/tree/master/sqflite",
+      "discontinued": false,
+      "score": {
+        "grantedPoints": 160,
+        "maxPoints": 160,
+        "likeCount": 5577,
+        "downloadCount30Days": 3229978,
+        "tags": [
+          "is:flutter-favorite",
+          "publisher:tekartik.com",
+          "has:funding-link",
+          "has:topic",
+          "sdk:flutter",
+          "platform:android",
+          "platform:ios",
+          "platform:macos",
+          "is:plugin",
+          "is:null-safe",
+          "is:wasm-ready",
+          "is:swiftpm-plugin",
+          "is:built-in-kotlin",
+          "is:dart3-compatible",
+          "license:bsd-2-clause",
+          "license:fsf-libre",
+          "license:osi-approved",
+          "topic:sql",
+          "topic:database"
+        ]
+      }
+    },
+    {
+      "name": "sqflite_common",
+      "locked": [
+        "2.5.15"
+      ],
+      "latest": "2.5.15",
+      "published": "2026-11-04T14:03:26.422027Z",
+      "repository": "https://github.com/tekartik/sqflite/tree/master/sqflite_common",
+      "discontinued": false,
+      "score": {
+        "grantedPoints": 160,
+        "maxPoints": 160,
+        "likeCount": 76,
+        "downloadCount30Days": 4164524,
+        "tags": [
+          "publisher:tekartik.com",
+          "has:funding-link",
+          "sdk:dart",
+          "sdk:flutter",
+          "platform:android",
+          "platform:ios",
+          "platform:windows",
+          "platform:linux",
+          "platform:macos",
+          "platform:web",
+          "runtime:native-aot",
+          "runtime:native-jit",
+          "runtime:web",
+          "is:null-safe",
+          "is:wasm-ready",
+          "is:dart3-compatible",
+          "license:bsd-2-clause",
+          "license:fsf-libre",
+          "license:osi-approved"
+        ]
+      }
+    },
+    {
+      "name": "sqflite_common_ffi",
+      "locked": [
+        "2.4.5"
+      ],
+      "latest": "2.4.5",
+      "published": "2026-10-22T22:14:05.985064Z",
+      "repository": "https://github.com/tekartik/sqflite/tree/master/sqflite_common_ffi",
+      "discontinued": false,
+      "score": {
+        "grantedPoints": 160,
+        "maxPoints": 160,
+        "likeCount": 320,
+        "downloadCount30Days": 576959,
+        "tags": [
+          "publisher:tekartik.com",
+          "has:funding-link",
+          "has:topic",
+          "sdk:dart",
+          "sdk:flutter",
+          "platform:android",
+          "platform:ios",
+          "platform:windows",
+          "platform:linux",
+          "platform:macos",
+          "platform:web",
+          "runtime:native-aot",
+          "runtime:native-jit",
+          "runtime:web",
+          "is:null-safe",
+          "is:wasm-ready",
+          "is:dart3-compatible",
+          "license:bsd-2-clause",
+          "license:fsf-libre",
+          "license:osi-approved",
+          "topic:sql",
+          "topic:database"
+        ]
+      }
+    },
+    {
+      "name": "sqlite3",
+      "locked": [
+        "3.5.2",
+        "3.9.1"
+      ],
+      "latest": "3.9.1",
+      "published": "2026-11-08T12:47:37.103177Z",
+      "repository": "https://github.com/simolus3/sqlite3.dart/tree/main/sqlite3",
+      "discontinued": false,
+      "score": {
+        "grantedPoints": 150,
+        "maxPoints": 160,
+        "likeCount": 466,
+        "downloadCount30Days": 3578943,
+        "tags": [
+          "publisher:simonbinder.eu",
+          "has:topic",
+          "sdk:dart",
+          "sdk:flutter",
+          "platform:android",
+          "platform:ios",
+          "platform:windows",
+          "platform:linux",
+          "platform:macos",
+          "platform:web",
+          "runtime:native-aot",
+          "runtime:native-jit",
+          "is:null-safe",
+          "is:dart3-compatible",
+          "license:mit",
+          "license:fsf-libre",
+          "license:osi-approved",
+          "topic:sql",
+          "topic:database",
+          "topic:ffi",
+          "topic:sqlite"
+        ]
+      }
+    },
+    {
+      "name": "path_provider",
+      "locked": [
+        "2.1.6"
+      ],
+      "latest": "2.1.6",
+      "published": "2026-06-15T13:51:07.158561Z",
+      "repository": "https://github.com/flutter/packages/tree/main/packages/path_provider/path_provider",
+      "discontinued": false,
+      "score": {
+        "grantedPoints": 160,
+        "maxPoints": 160,
+        "likeCount": 5574,
+        "downloadCount30Days": 10347676,
+        "tags": [
+          "is:flutter-favorite",
+          "publisher:flutter.dev",
+          "has:topic",
+          "sdk:flutter",
+          "platform:android",
+          "platform:ios",
+          "platform:windows",
+          "platform:linux",
+          "platform:macos",
+          "is:plugin",
+          "is:null-safe",
+          "is:dart3-compatible",
+          "license:bsd-3-clause",
+          "license:fsf-libre",
+          "license:osi-approved",
+          "topic:files",
+          "topic:path-provider",
+          "topic:paths"
+        ]
+      }
+    },
+    {
+      "name": "http",
+      "locked": [
+        "1.6.0"
+      ],
+      "latest": "1.6.0",
+      "published": "2025-11-10T18:27:56.434747Z",
+      "repository": "https://github.com/dart-lang/http/tree/master/pkgs/http",
+      "discontinued": false,
+      "score": {
+        "grantedPoints": 160,
+        "maxPoints": 160,
+        "likeCount": 8481,
+        "downloadCount30Days": 14597845,
+        "tags": [
+          "publisher:dart.dev",
+          "has:topic",
+          "sdk:dart",
+          "sdk:flutter",
+          "platform:android",
+          "platform:ios",
+          "platform:windows",
+          "platform:linux",
+          "platform:macos",
+          "platform:web",
+          "runtime:native-aot",
+          "runtime:native-jit",
+          "runtime:web",
+          "is:null-safe",
+          "is:wasm-ready",
+          "is:dart3-compatible",
+          "license:bsd-3-clause",
+          "license:fsf-libre",
+          "license:osi-approved",
+          "topic:http",
+          "topic:network",
+          "topic:protocols"
+        ]
+      }
+    },
+    {
+      "name": "file_picker",
+      "locked": [
+        "13.3.2"
+      ],
+      "latest": "13.3.2",
+      "published": "2026-11-02T11:50:10.166466Z",
+      "repository": "https://github.com/vicajilau/flutter_file_picker/tree/main/packages/file_picker",
+      "discontinued": false,
+      "score": {
+        "grantedPoints": 150,
+        "maxPoints": 160,
+        "likeCount": 4955,
+        "downloadCount30Days": 5060231,
+        "tags": [
+          "publisher:victorcarreras.dev",
+          "has:topic",
+          "sdk:flutter",
+          "platform:android",
+          "platform:ios",
+          "platform:windows",
+          "platform:linux",
+          "platform:macos",
+          "platform:web",
+          "is:plugin",
+          "is:null-safe",
+          "is:wasm-ready",
+          "is:swiftpm-plugin",
+          "is:built-in-kotlin",
+          "is:dart3-compatible",
+          "license:mit",
+          "license:fsf-libre",
+          "license:osi-approved",
+          "topic:file-picker",
+          "topic:files",
+          "topic:storage",
+          "topic:desktop",
+          "topic:web"
+        ]
+      }
+    },
+    {
+      "name": "crypto",
+      "locked": [
+        "3.0.8"
+      ],
+      "latest": "3.0.8",
+      "published": "2026-10-26T07:36:22.513425Z",
+      "repository": "https://github.com/dart-lang/core/tree/main/pkgs/crypto",
+      "discontinued": false,
+      "score": {
+        "grantedPoints": 160,
+        "maxPoints": 160,
+        "likeCount": 1896,
+        "downloadCount30Days": 17608752,
+        "tags": [
+          "publisher:dart.dev",
+          "has:topic",
+          "sdk:dart",
+          "sdk:flutter",
+          "platform:android",
+          "platform:ios",
+          "platform:windows",
+          "platform:linux",
+          "platform:macos",
+          "platform:web",
+          "runtime:native-aot",
+          "runtime:native-jit",
+          "runtime:web",
+          "is:null-safe",
+          "is:wasm-ready",
+          "is:dart3-compatible",
+          "license:bsd-3-clause",
+          "license:fsf-libre",
+          "license:osi-approved",
+          "topic:crypto",
+          "topic:cryptography"
+        ]
+      }
+    },
+    {
+      "name": "path",
+      "locked": [
+        "1.9.1"
+      ],
+      "latest": "1.9.1",
+      "published": "2024-10-17T08:37:58.135322Z",
+      "repository": "https://github.com/dart-lang/core/tree/main/pkgs/path",
+      "discontinued": false,
+      "score": {
+        "grantedPoints": 160,
+        "maxPoints": 160,
+        "likeCount": 1745,
+        "downloadCount30Days": 13034388,
+        "tags": [
+          "publisher:dart.dev",
+          "has:topic",
+          "sdk:dart",
+          "sdk:flutter",
+          "platform:android",
+          "platform:ios",
+          "platform:windows",
+          "platform:linux",
+          "platform:macos",
+          "platform:web",
+          "runtime:native-aot",
+          "runtime:native-jit",
+          "runtime:web",
+          "is:null-safe",
+          "is:wasm-ready",
+          "is:dart3-compatible",
+          "license:bsd-3-clause",
+          "license:fsf-libre",
+          "license:osi-approved",
+          "topic:file-system"
+        ]
+      }
+    }
+  ],
+  "githubRepositories": [
+    {
+      "full_name": "flutter/flutter",
+      "stargazers_count": 181095,
+      "archived": false,
+      "pushed_at": "2026-11-08T09:34:51Z",
+      "updated_at": "2026-11-09T15:00:09Z",
+      "open_issues_count": 13533,
+      "license": {
+        "key": "bsd-3-clause",
+        "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+        "spdx_id": "BSD-3-Clause",
+        "url": "https://api.github.com/licenses/bsd-3-clause",
+        "node_id": "MDc6TGljZW5zZTU="
+      },
+      "latestCommit": {
+        "date": "2026-11-08T09:03:39Z",
+        "message": "Roll Fuchsia Linux SDK from Sf2yvdTiFXAKkfLkD... to BOgXtIYxLYcCkRou2... (#196181)\n\nIf this roll has caused a breakage, revert this CL and set the roller\nto dry run mode using the controls here:\nhttps://autoroll.skia.org/r/fuchsia-linux-sdk-flutter\nPlease CC awolff@google.com,zra@google.com on the revert to ensure that\na human\nis aware of the problem.\n\nTo file a bug in Flutter:\nhttps://github.com/flutter/flutter/issues/new/choose\n\nTo report a problem with the AutoRoller itself, please file a bug:\nhttps://issues.skia.org/issues/new?component=1389291&template=1850622\n\nDocumentation for the AutoRoller is here:\nhttps://skia.googlesource.com/buildbot/+doc/main/autoroll/README.md"
+      }
+    },
+    {
+      "full_name": "dart-lang/http",
+      "stargazers_count": 1115,
+      "archived": false,
+      "pushed_at": "2026-11-07T01:49:26Z",
+      "updated_at": "2026-11-07T01:49:30Z",
+      "open_issues_count": 382,
+      "license": {
+        "key": "bsd-3-clause",
+        "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+        "spdx_id": "BSD-3-Clause",
+        "url": "https://api.github.com/licenses/bsd-3-clause",
+        "node_id": "MDc6TGljZW5zZTU="
+      },
+      "latestCommit": {
+        "date": "2026-11-07T01:49:23Z",
+        "message": "Tidy: package:cronet_http\n\nCo-authored-by: dart-ecosystem-bot <dart-ecosystem-bot@google.com>"
+      }
+    },
+    {
+      "full_name": "dart-lang/core",
+      "stargazers_count": 77,
+      "archived": false,
+      "pushed_at": "2026-11-06T12:02:14Z",
+      "updated_at": "2026-11-06T11:57:03Z",
+      "open_issues_count": 250,
+      "license": {
+        "key": "bsd-3-clause",
+        "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+        "spdx_id": "BSD-3-Clause",
+        "url": "https://api.github.com/licenses/bsd-3-clause",
+        "node_id": "MDc6TGljZW5zZTU="
+      },
+      "latestCommit": {
+        "date": "2026-11-06T11:56:58Z",
+        "message": "Release os_detect 2.0.4 (#1038)"
+      }
+    },
+    {
+      "full_name": "flutter/packages",
+      "stargazers_count": 5336,
+      "archived": false,
+      "pushed_at": "2026-11-09T08:56:05Z",
+      "updated_at": "2026-11-08T15:51:49Z",
+      "open_issues_count": 284,
+      "license": {
+        "key": "bsd-3-clause",
+        "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+        "spdx_id": "BSD-3-Clause",
+        "url": "https://api.github.com/licenses/bsd-3-clause",
+        "node_id": "MDc6TGljZW5zZTU="
+      },
+      "latestCommit": {
+        "date": "2026-11-08T15:51:29Z",
+        "message": "Roll Flutter from e36b37012875 to acade0f6b532 (1 revision) (#13590)\n\nhttps://github.com/flutter/flutter/compare/e36b37012875...acade0f6b532\n\n2026-11-08 engine-flutter-autoroll@skia.org Roll Fuchsia Linux SDK from Sf2yvdTiFXAKkfLkD... to BOgXtIYxLYcCkRou2... (flutter/flutter#196181)\n\nIf this roll has caused a breakage, revert this CL and set the roller\nto dry run mode using the controls here:\nhttps://autoroll.skia.org/r/flutter-packages\nPlease CC elliottbrooks@google.com,stuartmorgan@google.com on the revert to ensure that a human\nis aware of the problem.\n\nTo file a bug in Packages: https://github.com/flutter/flutter/issues/new/choose\n\nTo report a problem with the AutoRoller itself, please file a bug:\nhttps://issues.skia.org/issues/new?component=1389291&template=1850622\n\nDocumentation for the AutoRoller is here:\nhttps://skia.googlesource.com/buildbot/+doc/main/autoroll/README.md"
+      }
+    },
+    {
+      "full_name": "MaikuB/flutter_appauth",
+      "stargazers_count": 308,
+      "archived": false,
+      "pushed_at": "2026-10-30T22:19:32Z",
+      "updated_at": "2026-10-30T22:01:45Z",
+      "open_issues_count": 101,
+      "license": null,
+      "latestCommit": {
+        "date": "2026-10-30T22:01:40Z",
+        "message": "prepare for 13.0.0 release (#687)"
+      }
+    },
+    {
+      "full_name": "openid/AppAuth-iOS",
+      "stargazers_count": 2038,
+      "archived": false,
+      "pushed_at": "2026-11-02T22:18:54Z",
+      "updated_at": "2026-11-07T18:04:17Z",
+      "open_issues_count": 234,
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0",
+        "node_id": "MDc6TGljZW5zZTI="
+      },
+      "latestCommit": {
+        "date": "2026-11-02T21:10:32Z",
+        "message": "Stop crashing when a token or registration response is a JSON array (#988)"
+      }
+    },
+    {
+      "full_name": "openid/AppAuth-Android",
+      "stargazers_count": 3243,
+      "archived": false,
+      "pushed_at": "2026-03-22T20:54:07Z",
+      "updated_at": "2026-11-09T09:51:35Z",
+      "open_issues_count": 242,
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0",
+        "node_id": "MDc6TGljZW5zZTI="
+      },
+      "latestCommit": {
+        "date": "2026-03-22T20:54:07Z",
+        "message": "Merge pull request #1139 from dstd/patch-1\n\nFix of incorrect configuration change validation"
+      }
+    },
+    {
+      "full_name": "juliansteenbakker/flutter_secure_storage",
+      "stargazers_count": 1289,
+      "archived": false,
+      "pushed_at": "2026-11-04T09:24:24Z",
+      "updated_at": "2026-11-05T13:48:41Z",
+      "open_issues_count": 22,
+      "license": {
+        "key": "bsd-3-clause",
+        "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+        "spdx_id": "BSD-3-Clause",
+        "url": "https://api.github.com/licenses/bsd-3-clause",
+        "node_id": "MDc6TGljZW5zZTU="
+      },
+      "latestCommit": {
+        "date": "2026-11-01T21:35:47Z",
+        "message": "fix(android): don't hang when strongBiometricOnly negative button is tapped (#1279)\n\n* [fix] don't hang when strongBiometricOnly negative button is tapped\n\n* fix(android): report negative button cancel as an error code and cancel the prompt\n\n---------\n\nCo-authored-by: Julian Steenbakker <jst@beverinnovations.com>"
+      }
+    },
+    {
+      "full_name": "tekartik/sqflite",
+      "stargazers_count": 3020,
+      "archived": false,
+      "pushed_at": "2026-11-09T14:25:22Z",
+      "updated_at": "2026-11-09T14:25:28Z",
+      "open_issues_count": 6,
+      "license": {
+        "key": "bsd-2-clause",
+        "name": "BSD 2-Clause \"Simplified\" License",
+        "spdx_id": "BSD-2-Clause",
+        "url": "https://api.github.com/licenses/bsd-2-clause",
+        "node_id": "MDc6TGljZW5zZTQ="
+      },
+      "latestCommit": {
+        "date": "2026-11-09T14:25:19Z",
+        "message": "sqflite_common: 2.5.16 single instance cache, batch in the open callbacks\n\nFixes from a code review, each with a regression test:\n- single instance cache: closing an already closed database dropped a newer\n  instance at the same path; after an onDatabaseDowngradeDelete open or a\n  deleteDatabase through SqfliteDatabaseFactoryLogger, openDatabase returned\n  a second (or the deleted) instance\n- Batch.apply() in onCreate/onUpgrade/onDowngrade hung (outside the open\n  transaction)\n- openDatabase modified the given OpenDatabaseOptions\n- DatabaseException.getResultCode() threw without a message\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011Mtk7ocTedCc2yusUn8WWq"
+      }
+    },
+    {
+      "full_name": "simolus3/sqlite3.dart",
+      "stargazers_count": 304,
+      "archived": false,
+      "pushed_at": "2026-11-09T10:51:30Z",
+      "updated_at": "2026-11-09T10:51:38Z",
+      "open_issues_count": 20,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "latestCommit": {
+        "date": "2026-11-09T10:51:30Z",
+        "message": "Detach native finalizers before releasing statements and databases (#438)"
+      }
+    },
+    {
+      "full_name": "vicajilau/flutter_file_picker",
+      "stargazers_count": 1572,
+      "archived": false,
+      "pushed_at": "2026-11-09T14:46:30Z",
+      "updated_at": "2026-11-09T13:48:14Z",
+      "open_issues_count": 12,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "latestCommit": {
+        "date": "2026-11-09T13:48:08Z",
+        "message": "Merge pull request #2309 from vicajilau/fix/darwin-flutter-framework-spm\n\nAdd the FlutterFramework dependency to the Darwin Swift package"
+      }
+    },
+    {
+      "full_name": "lichess-org/dartchess",
+      "stargazers_count": 52,
+      "archived": false,
+      "pushed_at": "2026-11-05T09:28:16Z",
+      "updated_at": "2026-11-05T09:27:40Z",
+      "open_issues_count": 6,
+      "license": {
+        "key": "gpl-3.0",
+        "name": "GNU General Public License v3.0",
+        "spdx_id": "GPL-3.0",
+        "url": "https://api.github.com/licenses/gpl-3.0",
+        "node_id": "MDc6TGljZW5zZTk="
+      },
+      "latestCommit": {
+        "date": "2026-11-05T09:27:35Z",
+        "message": "Merge pull request #63 from lichess-org/pgn_comment_commands\n\nKeep unknown PGN comment commands out of the comment text"
+      }
+    },
+    {
+      "full_name": "lichess-org/flutter-chessground",
+      "stargazers_count": 89,
+      "archived": false,
+      "pushed_at": "2026-11-05T09:39:56Z",
+      "updated_at": "2026-11-05T09:39:26Z",
+      "open_issues_count": 9,
+      "license": {
+        "key": "gpl-3.0",
+        "name": "GNU General Public License v3.0",
+        "spdx_id": "GPL-3.0",
+        "url": "https://api.github.com/licenses/gpl-3.0",
+        "node_id": "MDc6TGljZW5zZTk="
+      },
+      "latestCommit": {
+        "date": "2026-11-05T09:38:22Z",
+        "message": "Apply color filters, radius and shadow to board border"
+      }
+    },
+    {
+      "full_name": "lichess-org/mobile",
+      "stargazers_count": 2651,
+      "archived": false,
+      "pushed_at": "2026-11-09T14:26:25Z",
+      "updated_at": "2026-11-09T14:26:38Z",
+      "open_issues_count": 506,
+      "license": {
+        "key": "gpl-3.0",
+        "name": "GNU General Public License v3.0",
+        "spdx_id": "GPL-3.0",
+        "url": "https://api.github.com/licenses/gpl-3.0",
+        "node_id": "MDc6TGljZW5zZTk="
+      },
+      "latestCommit": {
+        "date": "2026-11-09T14:24:37Z",
+        "message": "Show draw game diff as grey in lists"
+      }
+    },
+    {
+      "full_name": "open-spaced-repetition/dart-fsrs",
+      "stargazers_count": 67,
+      "archived": false,
+      "pushed_at": "2025-06-20T05:54:09Z",
+      "updated_at": "2026-10-29T06:27:01Z",
+      "open_issues_count": 5,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "latestCommit": {
+        "date": "2025-06-20T05:54:04Z",
+        "message": "release v2.0.1"
+      }
+    },
+    {
+      "full_name": "altstoreio/AltStore",
+      "stargazers_count": 14892,
+      "archived": false,
+      "pushed_at": "2026-10-21T16:13:02Z",
+      "updated_at": "2026-11-09T14:12:58Z",
+      "open_issues_count": 743,
+      "license": {
+        "key": "agpl-3.0",
+        "name": "GNU Affero General Public License v3.0",
+        "spdx_id": "AGPL-3.0",
+        "url": "https://api.github.com/licenses/agpl-3.0",
+        "node_id": "MDc6TGljZW5zZTE="
+      },
+      "latestCommit": {
+        "date": "2026-07-14T19:04:54Z",
+        "message": "Merge branch 'v2.3.3' into marketplace"
+      }
+    },
+    {
+      "repo": "altstoreio/AltServer-Windows",
+      "error": "gh: Not Found (HTTP 404)"
+    },
+    {
+      "full_name": "subosito/flutter-action",
+      "stargazers_count": 2618,
+      "archived": false,
+      "pushed_at": "2026-04-30T00:12:47Z",
+      "updated_at": "2026-11-08T21:20:22Z",
+      "open_issues_count": 25,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "latestCommit": {
+        "date": "2026-04-30T00:12:47Z",
+        "message": "Enforce SHA pinning templates (#399)\n\n* Create issue template regarding SHA pinning policy\n\n* Create pull request template regarding SHA pinning policy"
+      }
+    },
+    {
+      "full_name": "android-actions/setup-android",
+      "stargazers_count": 307,
+      "archived": false,
+      "pushed_at": "2026-10-30T22:09:54Z",
+      "updated_at": "2026-11-07T05:32:32Z",
+      "open_issues_count": 26,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "latestCommit": {
+        "date": "2026-09-17T19:30:37Z",
+        "message": "[CI] Add 15859902 to test matrix\n\n(This was supposed to be added during previous commits)"
+      }
+    }
+  ],
+  "osv": {
+    "endpoint": "https://api.osv.dev/v1/querybatch",
+    "ecosystem": "Pub",
+    "uniquePackageNames": 110,
+    "packageVersionPairs": [
+      [
+        "_fe_analyzer_shared",
+        "111.0.0"
+      ],
+      [
+        "analyzer",
+        "14.7.0"
+      ],
+      [
+        "android_file_picker",
+        "2.1.3"
+      ],
+      [
+        "args",
+        "2.7.0"
+      ],
+      [
+        "async",
+        "2.13.1"
+      ],
+      [
+        "boolean_selector",
+        "2.1.2"
+      ],
+      [
+        "characters",
+        "1.4.1"
+      ],
+      [
+        "chessground",
+        "11.1.0"
+      ],
+      [
+        "cli_config",
+        "0.2.0"
+      ],
+      [
+        "cli_util",
+        "0.6.0"
+      ],
+      [
+        "clock",
+        "1.1.3"
+      ],
+      [
+        "code_assets",
+        "1.2.1"
+      ],
+      [
+        "code_assets",
+        "2.2.0"
+      ],
+      [
+        "collection",
+        "1.19.1"
+      ],
+      [
+        "convert",
+        "3.1.2"
+      ],
+      [
+        "coverage",
+        "1.16.0"
+      ],
+      [
+        "cross_file",
+        "0.3.5+5"
+      ],
+      [
+        "crypto",
+        "3.0.8"
+      ],
+      [
+        "dartchess",
+        "0.15.0"
+      ],
+      [
+        "dbus",
+        "0.7.15"
+      ],
+      [
+        "fake_async",
+        "1.3.3"
+      ],
+      [
+        "ffi",
+        "2.2.0"
+      ],
+      [
+        "ffi_leak_tracker",
+        "0.1.2"
+      ],
+      [
+        "file",
+        "7.0.1"
+      ],
+      [
+        "file_picker",
+        "13.3.2"
+      ],
+      [
+        "file_picker_darwin",
+        "2.4.2"
+      ],
+      [
+        "file_picker_linux",
+        "2.0.3"
+      ],
+      [
+        "file_picker_platform_interface",
+        "4.2.0"
+      ],
+      [
+        "file_picker_web",
+        "4.2.0"
+      ],
+      [
+        "flutter_appauth",
+        "13.0.0"
+      ],
+      [
+        "flutter_appauth_platform_interface",
+        "13.0.0"
+      ],
+      [
+        "flutter_secure_storage",
+        "11.2.0"
+      ],
+      [
+        "flutter_secure_storage_darwin",
+        "0.4.3"
+      ],
+      [
+        "flutter_secure_storage_linux",
+        "3.0.3"
+      ],
+      [
+        "flutter_secure_storage_platform_interface",
+        "2.1.1"
+      ],
+      [
+        "flutter_secure_storage_web",
+        "2.1.1"
+      ],
+      [
+        "flutter_secure_storage_windows",
+        "4.2.2"
+      ],
+      [
+        "frontend_server_client",
+        "4.2.0"
+      ],
+      [
+        "fsrs",
+        "2.0.1"
+      ],
+      [
+        "glob",
+        "2.2.0"
+      ],
+      [
+        "hooks",
+        "2.0.2"
+      ],
+      [
+        "hooks",
+        "2.2.0"
+      ],
+      [
+        "http",
+        "1.6.0"
+      ],
+      [
+        "http_multi_server",
+        "3.2.3"
+      ],
+      [
+        "http_parser",
+        "4.1.2"
+      ],
+      [
+        "io",
+        "1.1.0"
+      ],
+      [
+        "jni",
+        "1.1.2"
+      ],
+      [
+        "jni_flutter",
+        "1.0.4+1"
+      ],
+      [
+        "jni_util",
+        "1.0.0"
+      ],
+      [
+        "leak_tracker",
+        "11.0.2"
+      ],
+      [
+        "leak_tracker_flutter_testing",
+        "3.0.10"
+      ],
+      [
+        "leak_tracker_testing",
+        "3.0.2"
+      ],
+      [
+        "logging",
+        "1.3.0"
+      ],
+      [
+        "matcher",
+        "0.12.20"
+      ],
+      [
+        "material_color_utilities",
+        "0.13.0"
+      ],
+      [
+        "meta",
+        "1.18.3"
+      ],
+      [
+        "meta",
+        "1.19.0"
+      ],
+      [
+        "mime",
+        "2.1.0"
+      ],
+      [
+        "native_toolchain_c",
+        "0.19.2"
+      ],
+      [
+        "native_toolchain_c",
+        "0.19.6"
+      ],
+      [
+        "node_preamble",
+        "2.0.2"
+      ],
+      [
+        "objective_c",
+        "9.5.0"
+      ],
+      [
+        "package_config",
+        "3.0.0"
+      ],
+      [
+        "path",
+        "1.9.1"
+      ],
+      [
+        "path_provider",
+        "2.1.6"
+      ],
+      [
+        "path_provider_android",
+        "2.3.1"
+      ],
+      [
+        "path_provider_foundation",
+        "2.6.0"
+      ],
+      [
+        "path_provider_linux",
+        "2.2.2"
+      ],
+      [
+        "path_provider_platform_interface",
+        "2.1.3"
+      ],
+      [
+        "path_provider_windows",
+        "2.3.0"
+      ],
+      [
+        "petitparser",
+        "7.0.2"
+      ],
+      [
+        "platform",
+        "3.2.0"
+      ],
+      [
+        "plugin_platform_interface",
+        "2.1.8"
+      ],
+      [
+        "pool",
+        "1.5.3"
+      ],
+      [
+        "process",
+        "5.0.6"
+      ],
+      [
+        "pub_semver",
+        "2.2.1"
+      ],
+      [
+        "record_use",
+        "0.6.0"
+      ],
+      [
+        "record_use",
+        "1.1.1"
+      ],
+      [
+        "shelf",
+        "1.4.3"
+      ],
+      [
+        "shelf_packages_handler",
+        "3.0.2"
+      ],
+      [
+        "shelf_static",
+        "1.2.0"
+      ],
+      [
+        "shelf_web_socket",
+        "3.0.0"
+      ],
+      [
+        "source_map_stack_trace",
+        "2.1.2"
+      ],
+      [
+        "source_maps",
+        "0.10.14"
+      ],
+      [
+        "source_span",
+        "1.10.2"
+      ],
+      [
+        "sqflite",
+        "2.4.5"
+      ],
+      [
+        "sqflite_android",
+        "2.4.5"
+      ],
+      [
+        "sqflite_common",
+        "2.5.15"
+      ],
+      [
+        "sqflite_common_ffi",
+        "2.4.5"
+      ],
+      [
+        "sqflite_darwin",
+        "2.4.5"
+      ],
+      [
+        "sqflite_platform_interface",
+        "2.4.3"
+      ],
+      [
+        "sqlite3",
+        "3.5.2"
+      ],
+      [
+        "sqlite3",
+        "3.9.1"
+      ],
+      [
+        "stack_trace",
+        "1.12.2"
+      ],
+      [
+        "stream_channel",
+        "2.1.4"
+      ],
+      [
+        "string_scanner",
+        "1.4.1"
+      ],
+      [
+        "sync_http",
+        "0.3.1"
+      ],
+      [
+        "synchronized",
+        "3.6.1"
+      ],
+      [
+        "term_glyph",
+        "1.2.2"
+      ],
+      [
+        "test",
+        "1.33.0"
+      ],
+      [
+        "test_api",
+        "0.7.12"
+      ],
+      [
+        "test_api",
+        "0.7.15"
+      ],
+      [
+        "test_core",
+        "0.6.21"
+      ],
+      [
+        "typed_data",
+        "1.4.0"
+      ],
+      [
+        "vector_math",
+        "2.4.0"
+      ],
+      [
+        "vector_math",
+        "2.4.4"
+      ],
+      [
+        "vm_service",
+        "15.4.0"
+      ],
+      [
+        "watcher",
+        "1.2.1"
+      ],
+      [
+        "web",
+        "1.1.2"
+      ],
+      [
+        "web_socket",
+        "1.0.1"
+      ],
+      [
+        "web_socket_channel",
+        "3.0.3"
+      ],
+      [
+        "webdriver",
+        "3.2.0"
+      ],
+      [
+        "webkit_inspection_protocol",
+        "1.2.1"
+      ],
+      [
+        "win32",
+        "6.4.0"
+      ],
+      [
+        "windows_file_picker",
+        "2.0.1"
+      ],
+      [
+        "xdg_directories",
+        "1.1.0"
+      ],
+      [
+        "xml",
+        "7.0.1"
+      ],
+      [
+        "yaml",
+        "3.1.4"
+      ]
+    ],
+    "resultCount": 118,
+    "matchingAdvisories": []
+  },
+  "outdated": {
+    "packages": [
+      {
+        "package": "android_file_picker",
+        "kind": "transitive",
+        "isDiscontinued": false,
+        "replacedBy": null,
+        "isCurrentRetracted": false,
+        "isCurrentAffectedByAdvisory": false,
+        "current": {
+          "version": "2.1.3"
+        },
+        "upgradable": {
+          "version": "2.1.4"
+        },
+        "resolvable": {
+          "version": "2.1.4"
+        },
+        "latest": {
+          "version": "2.1.4"
+        }
+      },
+      {
+        "package": "code_assets",
+        "kind": "transitive",
+        "isDiscontinued": false,
+        "replacedBy": null,
+        "isCurrentRetracted": false,
+        "isCurrentAffectedByAdvisory": false,
+        "current": {
+          "version": "1.2.1"
+        },
+        "upgradable": {
+          "version": "2.2.0"
+        },
+        "resolvable": {
+          "version": "2.2.0"
+        },
+        "latest": {
+          "version": "2.2.0"
+        }
+      },
+      {
+        "package": "cross_file",
+        "kind": "transitive",
+        "isDiscontinued": false,
+        "replacedBy": null,
+        "isCurrentRetracted": false,
+        "isCurrentAffectedByAdvisory": false,
+        "current": {
+          "version": "0.3.5+5"
+        },
+        "upgradable": {
+          "version": "0.3.5+5"
+        },
+        "resolvable": {
+          "version": "0.3.5+5"
+        },
+        "latest": {
+          "version": "0.4.0"
+        }
+      },
+      {
+        "package": "dbus",
+        "kind": "transitive",
+        "isDiscontinued": false,
+        "replacedBy": null,
+        "isCurrentRetracted": false,
+        "isCurrentAffectedByAdvisory": false,
+        "current": {
+          "version": "0.7.15"
+        },
+        "upgradable": {
+          "version": "0.8.0"
+        },
+        "resolvable": {
+          "version": "0.8.0"
+        },
+        "latest": {
+          "version": "0.8.0"
+        }
+      },
+      {
+        "package": "file_picker_darwin",
+        "kind": "transitive",
+        "isDiscontinued": false,
+        "replacedBy": null,
+        "isCurrentRetracted": false,
+        "isCurrentAffectedByAdvisory": false,
+        "current": {
+          "version": "2.4.2"
+        },
+        "upgradable": {
+          "version": "2.5.0"
+        },
+        "resolvable": {
+          "version": "2.5.0"
+        },
+        "latest": {
+          "version": "2.5.0"
+        }
+      },
+      {
+        "package": "hooks",
+        "kind": "transitive",
+        "isDiscontinued": false,
+        "replacedBy": null,
+        "isCurrentRetracted": false,
+        "isCurrentAffectedByAdvisory": false,
+        "current": {
+          "version": "2.0.2"
+        },
+        "upgradable": {
+          "version": "2.2.0"
+        },
+        "resolvable": {
+          "version": "2.2.0"
+        },
+        "latest": {
+          "version": "2.2.0"
+        }
+      },
+      {
+        "package": "material_color_utilities",
+        "kind": "transitive",
+        "isDiscontinued": false,
+        "replacedBy": null,
+        "isCurrentRetracted": false,
+        "isCurrentAffectedByAdvisory": false,
+        "current": {
+          "version": "0.13.0"
+        },
+        "upgradable": {
+          "version": "0.13.0"
+        },
+        "resolvable": {
+          "version": "0.13.0"
+        },
+        "latest": {
+          "version": "0.13.1"
+        }
+      },
+      {
+        "package": "meta",
+        "kind": "transitive",
+        "isDiscontinued": false,
+        "replacedBy": null,
+        "isCurrentRetracted": false,
+        "isCurrentAffectedByAdvisory": false,
+        "current": {
+          "version": "1.18.3"
+        },
+        "upgradable": {
+          "version": "1.19.0"
+        },
+        "resolvable": {
+          "version": "1.19.0"
+        },
+        "latest": {
+          "version": "1.19.0"
+        }
+      },
+      {
+        "package": "native_toolchain_c",
+        "kind": "transitive",
+        "isDiscontinued": false,
+        "replacedBy": null,
+        "isCurrentRetracted": false,
+        "isCurrentAffectedByAdvisory": false,
+        "current": {
+          "version": "0.19.2"
+        },
+        "upgradable": {
+          "version": "0.19.6"
+        },
+        "resolvable": {
+          "version": "0.19.6"
+        },
+        "latest": {
+          "version": "0.19.6"
+        }
+      },
+      {
+        "package": "objective_c",
+        "kind": "transitive",
+        "isDiscontinued": false,
+        "replacedBy": null,
+        "isCurrentRetracted": false,
+        "isCurrentAffectedByAdvisory": false,
+        "current": {
+          "version": "9.5.0"
+        },
+        "upgradable": {
+          "version": "9.6.3"
+        },
+        "resolvable": {
+          "version": "9.6.3"
+        },
+        "latest": {
+          "version": "9.6.3"
+        }
+      },
+      {
+        "package": "petitparser",
+        "kind": "transitive",
+        "isDiscontinued": false,
+        "replacedBy": null,
+        "isCurrentRetracted": false,
+        "isCurrentAffectedByAdvisory": false,
+        "current": {
+          "version": "7.0.2"
+        },
+        "upgradable": {
+          "version": "7.1.0"
+        },
+        "resolvable": {
+          "version": "7.1.0"
+        },
+        "latest": {
+          "version": "7.1.0"
+        }
+      },
+      {
+        "package": "record_use",
+        "kind": "transitive",
+        "isDiscontinued": false,
+        "replacedBy": null,
+        "isCurrentRetracted": false,
+        "isCurrentAffectedByAdvisory": false,
+        "current": {
+          "version": "0.6.0"
+        },
+        "upgradable": {
+          "version": "1.1.1"
+        },
+        "resolvable": {
+          "version": "1.1.1"
+        },
+        "latest": {
+          "version": "1.1.1"
+        }
+      },
+      {
+        "package": "sqlite3",
+        "kind": "transitive",
+        "isDiscontinued": false,
+        "replacedBy": null,
+        "isCurrentRetracted": false,
+        "isCurrentAffectedByAdvisory": false,
+        "current": {
+          "version": "3.5.2"
+        },
+        "upgradable": {
+          "version": "3.9.1"
+        },
+        "resolvable": {
+          "version": "3.9.1"
+        },
+        "latest": {
+          "version": "3.9.1"
+        }
+      },
+      {
+        "package": "synchronized",
+        "kind": "transitive",
+        "isDiscontinued": false,
+        "replacedBy": null,
+        "isCurrentRetracted": false,
+        "isCurrentAffectedByAdvisory": false,
+        "current": {
+          "version": "3.6.1"
+        },
+        "upgradable": {
+          "version": "3.6.1+1"
+        },
+        "resolvable": {
+          "version": "3.6.1+1"
+        },
+        "latest": {
+          "version": "3.6.1+1"
+        }
+      },
+      {
+        "package": "test_api",
+        "kind": "transitive",
+        "isDiscontinued": false,
+        "replacedBy": null,
+        "isCurrentRetracted": false,
+        "isCurrentAffectedByAdvisory": false,
+        "current": {
+          "version": "0.7.12"
+        },
+        "upgradable": {
+          "version": "0.7.12"
+        },
+        "resolvable": {
+          "version": "0.7.12"
+        },
+        "latest": {
+          "version": "0.7.15"
+        }
+      },
+      {
+        "package": "vector_math",
+        "kind": "transitive",
+        "isDiscontinued": false,
+        "replacedBy": null,
+        "isCurrentRetracted": false,
+        "isCurrentAffectedByAdvisory": false,
+        "current": {
+          "version": "2.4.0"
+        },
+        "upgradable": {
+          "version": "2.4.4"
+        },
+        "resolvable": {
+          "version": "2.4.4"
+        },
+        "latest": {
+          "version": "2.4.4"
+        }
+      },
+      {
+        "package": "xml",
+        "kind": "transitive",
+        "isDiscontinued": false,
+        "replacedBy": null,
+        "isCurrentRetracted": false,
+        "isCurrentAffectedByAdvisory": false,
+        "current": {
+          "version": "7.0.1"
+        },
+        "upgradable": {
+          "version": "7.1.0"
+        },
+        "resolvable": {
+          "version": "7.1.0"
+        },
+        "latest": {
+          "version": "7.1.0"
+        }
+      }
+    ]
+  },
+  "nativeAdvisoryQueries": {
+    "AppAuth-iOS": {
+      "query": {
+        "package": {
+          "ecosystem": "SwiftURL",
+          "name": "github.com/openid/AppAuth-iOS"
+        },
+        "version": "3.0.0"
+      },
+      "response": {}
+    },
+    "AppAuth-Android": {
+      "query": {
+        "package": {
+          "ecosystem": "Maven",
+          "name": "net.openid:appauth"
+        },
+        "version": "0.11.1"
+      },
+      "response": {}
+    }
+  },
+  "sdkAdvisories": [
+    {
+      "ghsa_id": "GHSA-frr6-h895-5pxp",
+      "html_url": "https://github.com/dart-lang/sdk/security/advisories/GHSA-frr6-h895-5pxp",
+      "summary": "TLS MitM vulnerability on Android, Windows, and Linux due to compromised eMudhra intermediate CA certificates",
+      "severity": "high",
+      "published_at": "2026-10-23T18:51:07Z",
+      "vulnerabilities": [
+        {
+          "package": {
+            "ecosystem": "other",
+            "name": "Dart SDK"
+          },
+          "vulnerable_version_range": "< 3.13.7 (stable), < 3.14.0-315.3.beta (beta)",
+          "patched_versions": "3.13.7, 3.14.0-315.3.beta",
+          "vulnerable_functions": []
+        },
+        {
+          "package": {
+            "ecosystem": "other",
+            "name": "Flutter SDK"
+          },
+          "vulnerable_version_range": "< 3.47.8 (stable), < 3.50.0-0.2.pre (beta)",
+          "patched_versions": "3.47.8, 3.50.0-0.2.pre",
+          "vulnerable_functions": []
+        }
+      ]
+    },
+    {
+      "ghsa_id": "GHSA-q739-79rh-vmvp",
+      "html_url": "https://github.com/dart-lang/sdk/security/advisories/GHSA-q739-79rh-vmvp",
+      "summary": "Zip slip in Dart Pub package extraction",
+      "severity": "low",
+      "published_at": "2026-02-23T19:13:52Z",
+      "vulnerabilities": [
+        {
+          "package": {
+            "ecosystem": "dart sdk",
+            "name": "Dart SDK"
+          },
+          "vulnerable_version_range": "Prior to 3.11.0",
+          "patched_versions": "3.11.0",
+          "vulnerable_functions": []
+        },
+        {
+          "package": {
+            "ecosystem": "flutter sdk",
+            "name": "Flutter SDK"
+          },
+          "vulnerable_version_range": "Prior to 3.41.0",
+          "patched_versions": "3.41.0",
+          "vulnerable_functions": []
+        }
+      ]
+    },
+    {
+      "ghsa_id": "GHSA-m9pm-2598-57rj",
+      "html_url": "https://github.com/dart-lang/sdk/security/advisories/GHSA-m9pm-2598-57rj",
+      "summary": "Vulnerability: Auth Bypass in Dart due to incorrect parsing of the backslash characters in the URL",
+      "severity": "medium",
+      "published_at": "2022-09-28T20:06:51Z",
+      "vulnerabilities": [
+        {
+          "package": {
+            "ecosystem": "core sdk",
+            "name": "Dart SDK"
+          },
+          "vulnerable_version_range": "Dart version prior to 2.18.2, Flutter version prior to 3.3.3",
+          "patched_versions": "Dart version 2.18.2, Flutter version 3.3.3",
+          "vulnerable_functions": []
+        }
+      ]
+    },
+    {
+      "ghsa_id": "GHSA-c8mh-jj22-xg5h",
+      "html_url": "https://github.com/dart-lang/sdk/security/advisories/GHSA-c8mh-jj22-xg5h",
+      "summary": "Auth Bypass in Dart SDK when handling cross origin redirect",
+      "severity": "medium",
+      "published_at": "2022-02-03T17:33:28Z",
+      "vulnerabilities": [
+        {
+          "package": {
+            "ecosystem": "dart sdk",
+            "name": "Core SDK"
+          },
+          "vulnerable_version_range": "Dart version prior to 2.16.0, Flutter version < 2.10.0",
+          "patched_versions": "Dart version 2.16.0, Flutter version 2.10.0",
+          "vulnerable_functions": []
+        }
+      ]
+    },
+    {
+      "ghsa_id": "GHSA-r32f-vhjp-qhj7",
+      "html_url": "https://github.com/dart-lang/sdk/security/advisories/GHSA-r32f-vhjp-qhj7",
+      "summary": "Publishing to third-party package repositories may expose pub.dev credentials",
+      "severity": "medium",
+      "published_at": "2021-12-08T15:36:08Z",
+      "vulnerabilities": [
+        {
+          "package": {
+            "ecosystem": "dart",
+            "name": ""
+          },
+          "vulnerable_version_range": "<2.15.0",
+          "patched_versions": "2.15.0",
+          "vulnerable_functions": []
+        }
+      ]
+    },
+    {
+      "ghsa_id": "GHSA-8pcp-6qc9-rqmv",
+      "html_url": "https://github.com/dart-lang/sdk/security/advisories/GHSA-8pcp-6qc9-rqmv",
+      "summary": "Unsafe bidirectional unicode characters",
+      "severity": "medium",
+      "published_at": "2021-12-08T14:32:33Z",
+      "vulnerabilities": [
+        {
+          "package": {
+            "ecosystem": "dart",
+            "name": "Core SDK"
+          },
+          "vulnerable_version_range": "<2.15.0",
+          "patched_versions": "2.15.0",
+          "vulnerable_functions": []
+        }
+      ]
+    },
+    {
+      "ghsa_id": "GHSA-3rfv-4jvg-9522",
+      "html_url": "https://github.com/dart-lang/sdk/security/advisories/GHSA-3rfv-4jvg-9522",
+      "summary": "XSS vulnerability in dart:html",
+      "severity": "medium",
+      "published_at": "2021-04-28T18:28:00Z",
+      "vulnerabilities": [
+        {
+          "package": {
+            "ecosystem": "",
+            "name": ""
+          },
+          "vulnerable_version_range": "<2.12.2",
+          "patched_versions": "2.12.3",
+          "vulnerable_functions": []
+        }
+      ]
+    },
+    {
+      "ghsa_id": "GHSA-hfq3-v9pv-p627",
+      "html_url": "https://github.com/dart-lang/sdk/security/advisories/GHSA-hfq3-v9pv-p627",
+      "summary": "XSS vulnerability in dart:html",
+      "severity": "medium",
+      "published_at": "2020-03-24T16:41:07Z",
+      "vulnerabilities": [
+        {
+          "package": {
+            "ecosystem": "",
+            "name": ""
+          },
+          "vulnerable_version_range": "<2.7.1",
+          "patched_versions": "2.7.2",
+          "vulnerable_functions": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'response_limits.dart';
 
 abstract interface class TokenVault {
   Future<String?> read();
@@ -74,14 +75,15 @@ class LichessConnection extends http.BaseClient {
         Uri.https('lichess.org', '/api/account'),
       )..followRedirects = false;
       request.headers['Authorization'] = 'Bearer ${grant.token}';
-      final response = await http.Response.fromStream(
-        await inner.send(request),
-      ).timeout(const Duration(seconds: 30));
+      final response = await inner
+          .send(request)
+          .timeout(const Duration(seconds: 30));
+      final body = await readResponseBytes(response.stream, 65536);
       if (response.statusCode != 200)
         throw const ConnectionException(
           'Could not verify the Lichess account. Please reconnect.',
         );
-      final j = jsonDecode(response.body) as Map<String, dynamic>;
+      final j = jsonDecode(utf8.decode(body)) as Map<String, dynamic>;
       final username = j['username'] as String;
       await vault.write(
         jsonEncode({

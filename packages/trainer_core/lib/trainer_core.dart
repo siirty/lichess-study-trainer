@@ -5,6 +5,8 @@ import 'package:dartchess/dartchess.dart';
 import 'package:fsrs/fsrs.dart' as fsrs;
 export 'package:fsrs/fsrs.dart' show Rating;
 
+export 'input_limits.dart';
+import 'input_limits.dart';
 export 'src_training.dart';
 import 'src_training.dart';
 
@@ -128,7 +130,7 @@ class ImportResult {
 // source, reject visibly truncated containers while leaving chess/SAN parsing
 // to dartchess. This is a structural guard, not a second PGN implementation.
 void _validatePgnContainers(String text) {
-  var depth = 0;
+  var depth = 0, moveCharacters = 0, headers = 0;
   var header = false,
       quoted = false,
       escaped = false,
@@ -178,6 +180,8 @@ void _validatePgnContainers(String text) {
       continue;
     }
     if (code == 91) {
+      if (++headers > maxPgnChapters * 32)
+        throw const InputLimitException('Too many PGN headers.');
       if (header) throw const FormatException('Nested PGN header');
       header = true;
       continue;
@@ -188,7 +192,12 @@ void _validatePgnContainers(String text) {
       continue;
     }
     if (header) continue;
-    if (code == 40) depth++;
+    if (code > 32 && ++moveCharacters > 750000)
+      throw const InputLimitException(
+        'PGN move text exceeds the supported limit.',
+      );
+    if (code == 40 && ++depth > maxPgnVariationDepth)
+      throw const InputLimitException('Too many nested PGN variations.');
     if (code == 41 && --depth < 0)
       throw const FormatException('Unmatched PGN variation');
   }
@@ -196,14 +205,65 @@ void _validatePgnContainers(String text) {
     throw const FormatException('Incomplete PGN; existing source was retained');
 }
 
+// Match the upstream multi-game separator (newline, whitespace, then '[')
+// in linear time. A backtracking newline/whitespace regex can take quadratic
+// time on an otherwise small file containing many blank lines.
+bool _pgnWhitespace(int c) =>
+    (c >= 9 && c <= 13) ||
+    c == 32 ||
+    c == 160 ||
+    c == 0x1680 ||
+    (c >= 0x2000 && c <= 0x200a) ||
+    c == 0x2028 ||
+    c == 0x2029 ||
+    c == 0x202f ||
+    c == 0x205f ||
+    c == 0x3000 ||
+    c == 0xfeff;
+
+Iterable<PgnGame<PgnNodeData>> _parsePgnGames(String pgn) sync* {
+  var start = 0, i = 0, games = 0;
+  while (i < pgn.length) {
+    if (pgn.codeUnitAt(i) != 10) {
+      i++;
+      continue;
+    }
+    var next = i + 1;
+    while (next < pgn.length && _pgnWhitespace(pgn.codeUnitAt(next))) {
+      next++;
+    }
+    if (next > i + 1 && next < pgn.length && pgn.codeUnitAt(next) == 91) {
+      final text = pgn.substring(start, i);
+      if (text.trim().isNotEmpty) {
+        if (++games > maxPgnChapters)
+          throw const InputLimitException('Too many PGN chapters.');
+        yield PgnGame.parsePgn(text);
+      }
+      start = next;
+    }
+    i = next;
+  }
+  final text = pgn.substring(start);
+  if (text.trim().isNotEmpty) {
+    if (++games > maxPgnChapters)
+      throw const InputLimitException('Too many PGN chapters.');
+    yield PgnGame.parsePgn(text);
+  }
+}
+
 /// Omitting [side] imports both colors in one pass. Existing side-scoped callers
 /// keep the same deterministic IDs as a combined import.
 ImportResult importPgn(String pgn, String source, [Side? side]) {
-  if (pgn.length > 5000000) throw const FormatException('PGN exceeds 5 MB');
+  if (source.isEmpty || source.length > 512)
+    throw const FormatException(
+      'Source identifier must contain 1–512 characters',
+    );
+  checkTextBytes(pgn, maxPgnBytes);
   _validatePgnContainers(pgn);
-  final games = PgnGame.parseMultiGamePgn(pgn);
+  final games = _parsePgnGames(pgn);
   final decisions = <Decision>[];
   final chapters = <String>{};
+  var totalPositions = 0;
   for (final game in games) {
     if (game.headers['Variant'] != null &&
         game.headers['Variant'] != 'Standard')
@@ -216,6 +276,8 @@ ImportResult importPgn(String pgn, String source, [Side? side]) {
             site.pathSegments[0] == 'study'
         ? site.pathSegments[2]
         : identity([game.headers['Event'], game.headers['FEN'] ?? 'start']);
+    if (chapters.length >= maxPgnChapters)
+      throw const InputLimitException('Too many PGN chapters.');
     if (!chapters.add(chapter))
       throw const FormatException(
         'Ambiguous chapter identity: use distinct Event headers',
@@ -226,10 +288,10 @@ ImportResult importPgn(String pgn, String source, [Side? side]) {
     final replies = <String, Map<String, Set<String>>>{};
     final context = <String, Set<String>>{};
     final stack = [(game.moves, PgnGame.startingPosition(game.headers))];
-    var count = 0;
     while (stack.isNotEmpty) {
       final (node, pos) = stack.removeLast();
-      if (++count > 100000) throw const FormatException('Too many positions');
+      if (++totalPositions > maxPgnPositions)
+        throw const InputLimitException('Too many PGN positions.');
       for (final child in node.children) {
         final move = pos.parseSan(child.data.san);
         if (move == null || !pos.isLegal(move))
@@ -306,10 +368,21 @@ class ReviewState {
     'card': card.toMap(),
     'suspended': suspended,
   };
-  factory ReviewState.fromJson(Map<String, dynamic> j) => ReviewState(
-    fsrs.Card.fromMap(Map<String, dynamic>.from(j['card'])),
-    suspended: j['suspended'] as bool,
-  );
+  factory ReviewState.fromJson(Map<String, dynamic> j) {
+    final card = fsrs.Card.fromMap(Map<String, dynamic>.from(j['card']));
+    final stability = card.stability, difficulty = card.difficulty;
+    if ((stability == null) != (difficulty == null) ||
+        (stability != null &&
+            (!stability.isFinite || stability <= 0 || stability > 1e9)) ||
+        (difficulty != null &&
+            (!difficulty.isFinite || difficulty < 1 || difficulty > 10)) ||
+        (card.state != fsrs.State.learning && stability == null) ||
+        (card.step != null && card.step! < 0) ||
+        (card.state != fsrs.State.review && card.step == null)) {
+      throw const FormatException('Invalid scheduling state');
+    }
+    return ReviewState(card, suspended: j['suspended'] as bool);
+  }
 }
 
 class ScheduledReview {
@@ -334,7 +407,7 @@ ScheduledReview schedule(
   double retention = .9,
   Decision? decision,
 }) {
-  if (retention <= 0 || retention >= 1)
+  if (!retention.isFinite || retention <= 0 || retention >= 1)
     throw ArgumentError.value(
       retention,
       'retention',

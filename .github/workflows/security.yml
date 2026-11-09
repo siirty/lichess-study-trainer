@@ -1,0 +1,21 @@
+name: Dependency security scan
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '27 7 * * 1'
+  pull_request:
+    paths:
+      - '**/pubspec.lock'
+      - 'scripts/audit_dependencies.py'
+      - '.github/workflows/security.yml'
+permissions:
+  contents: read
+jobs:
+  advisories:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - run: python3 scripts/audit_dependencies.py

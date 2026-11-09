@@ -22,8 +22,10 @@ jobs:
     runs-on: macos-latest
     timeout-minutes: 45
     steps:
-      - uses: actions/checkout@v4
-      - uses: subosito/flutter-action@v2
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2
         with:
           flutter-version: '3.47.9'
           channel: stable
@@ -32,13 +34,13 @@ jobs:
         run: xcodebuild -version && flutter --version && xcrun simctl list runtimes
       - name: Resolve dependencies
         working-directory: apps/standalone
-        run: flutter pub get
+        run: flutter pub get --enforce-lockfile
       - name: Build iPhone application without signing
         working-directory: apps/standalone
         run: flutter build ios --release --no-codesign
       - name: Save unsigned device application
         run: ditto -c -k --sequesterRsrc --keepParent apps/standalone/build/ios/iphoneos/Runner.app ios-device-unsigned.zip
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: ios-device-unsigned
           path: ios-device-unsigned.zip
@@ -56,7 +58,7 @@ jobs:
               assert info['CFBundleIdentifier'] == 'org.studytrainer.standalone'
               assert 'Payload/Runner.app/Runner' in archive.namelist()
           PYIPA
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: ios-unsigned-ipa-for-local-signing
           path: build/study-trainer-unsigned.ipa
@@ -86,7 +88,7 @@ jobs:
         run: flutter build ios --simulator --debug
       - name: Save simulator application
         run: ditto -c -k --sequesterRsrc --keepParent apps/standalone/build/ios/iphonesimulator/Runner.app ios-simulator.zip
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: ios-simulator
           path: ios-simulator.zip

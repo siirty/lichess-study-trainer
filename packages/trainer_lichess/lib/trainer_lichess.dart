@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'response_limits.dart';
 
 class StudySource {
   StudySource(this.studyId, [this.chapterId]);
@@ -11,6 +12,8 @@ class StudySource {
     final p = uri.pathSegments;
     if (uri.scheme != 'https' ||
         uri.host != 'lichess.org' ||
+        uri.port != 443 ||
+        uri.userInfo.isNotEmpty ||
         p.length < 2 ||
         p.length > 3 ||
         p.first != 'study' ||
@@ -52,7 +55,7 @@ class LichessStudyClient {
     _inFlight = true;
     try {
       final response = await client
-          .send(http.Request('GET', source.exportUri))
+          .send(http.Request('GET', source.exportUri)..followRedirects = false)
           .timeout(const Duration(seconds: 30));
       if (response.statusCode != 200) {
         if (response.statusCode == 429)
@@ -68,14 +71,7 @@ class LichessStudyClient {
           response.headers['retry-after'],
         );
       }
-      final bytes = <int>[];
-      await for (final chunk in response.stream.timeout(
-        const Duration(seconds: 30),
-      )) {
-        bytes.addAll(chunk);
-        if (bytes.length > 5000000)
-          throw const FormatException('Study exceeds 5 MB');
-      }
+      final bytes = await readResponseBytes(response.stream, 5000000);
       return utf8.decode(bytes);
     } finally {
       _inFlight = false;

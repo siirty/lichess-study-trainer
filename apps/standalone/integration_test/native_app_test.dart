@@ -7,6 +7,7 @@ import 'package:integration_test/integration_test.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart' as sqlite;
 import 'package:study_trainer/auth.dart';
+import 'package:study_trainer/file_import.dart';
 import 'package:study_trainer/main.dart';
 import 'package:trainer_core/trainer_core.dart';
 import 'package:trainer_storage/trainer_storage.dart';
@@ -93,7 +94,16 @@ void main() {
         await store.db.close();
         store = await SqliteTrainerStore.open(sqlite.databaseFactory, path);
         expect((await store.states())[event.decisionId]!.toJson(), saved);
-        await store.restore(await backupFile.readAsString());
+        await expectLater(
+          readBoundedUtf8(backupFile.openRead(), maxBytes: 8),
+          throwsA(isA<InputLimitException>()),
+        );
+        await store.restore(
+          await readBoundedUtf8(
+            backupFile.openRead(),
+            maxBytes: maxBackupBytes,
+          ),
+        );
         expect((await store.history()).single.id, event.id);
         await backupFile.delete();
         await tester.pumpWidget(TrainerApp(store: store));

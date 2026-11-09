@@ -235,6 +235,43 @@ void main() {
     },
   );
   testWidgets(
+    'backup export requires privacy acknowledgement before opening picker',
+    (tester) async {
+      await tester.runAsync(() async {
+        tester.view.physicalSize = const Size(600, 1600);
+        tester.view.devicePixelRatio = 1;
+        addTearDown(tester.view.reset);
+        sqfliteFfiInit();
+        final dir = await Directory.systemTemp.createTemp('backup-notice');
+        final store = await SqliteTrainerStore.open(
+          databaseFactoryFfi,
+          '${dir.path}/db',
+        );
+        await tester.pumpWidget(TrainerApp(store: store));
+        await waitFor(
+          tester,
+          () => find.text('Start due reviews').evaluate().isNotEmpty,
+        );
+        await tester.tap(find.text('Settings'));
+        await tester.pumpAndSettle();
+        await tester.ensureVisible(find.text('Export full backup'));
+        await tester.tap(find.text('Export full backup'));
+        await tester.pump(const Duration(milliseconds: 300));
+        expect(find.text('Export readable backup?'), findsOneWidget);
+        expect(find.textContaining('It is not encrypted.'), findsOneWidget);
+        await tester.tap(find.text('Cancel'));
+        await waitFor(
+          tester,
+          () => find.text('Export readable backup?').evaluate().isEmpty,
+        );
+        expect(find.text('Export readable backup?'), findsNothing);
+        await tester.pumpWidget(const SizedBox());
+        await store.db.close();
+        await dir.delete(recursive: true);
+      });
+    },
+  );
+  testWidgets(
     'startup failure can be retried without exposing data or replacing the library',
     (tester) async {
       await tester.runAsync(() async {

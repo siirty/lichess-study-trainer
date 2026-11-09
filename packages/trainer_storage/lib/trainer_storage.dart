@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'dart:isolate';
+import 'dart:typed_data';
 import 'package:sqflite_common/sqlite_api.dart';
 import 'package:trainer_core/trainer_core.dart';
+part 'backup_validation.dart';
 
 class SqliteTrainerStore implements TrainerStore {
   SqliteTrainerStore(this.db, {DateTime Function()? clock})
@@ -472,47 +474,55 @@ class SqliteTrainerStore implements TrainerStore {
   }
 
   @override
-  Future<String> backup() => db.transaction(
-    (tx) async => jsonEncode({
-      'version': 4,
-      for (final t in ['decisions', 'states', 'events', 'sources', 'settings'])
-        t: await tx.query(t),
-    }),
-  );
+  Future<String> backup() async {
+    final snapshot = await db.transaction((tx) async {
+      var count = 0, size = 0;
+      for (final entry in _backupColumns.entries) {
+        final table = entry.key;
+        final lengths = entry.value
+            .map((c) => 'length(CAST($c AS BLOB))')
+            .join(' + ');
+        final totals = (await tx.rawQuery(
+          'SELECT COUNT(*) AS n, COALESCE(SUM($lengths), 0) AS bytes FROM $table',
+        )).single;
+        count += totals['n'] as int;
+        size += totals['bytes'] as int;
+        if (count > maxBackupRows || size > maxBackupBytes) {
+          throw const InputLimitException(
+            'Backup exceeds 25 MB or 100,000 total rows.',
+          );
+        }
+      }
+      return {
+        'version': 4,
+        for (final table in _backupColumns.keys) table: await tx.query(table),
+      };
+    });
+    return Isolate.run(() {
+      final sink = _BackupByteSink();
+      final encoder = JsonUtf8Encoder().startChunkedConversion(sink);
+      encoder.add(snapshot);
+      encoder.close();
+      final text = utf8.decode(sink.bytes.takeBytes());
+      _validatedBackup(text);
+      return text;
+    });
+  }
+
   @override
   Future<void> restore(String text) async {
-    final j = jsonDecode(text) as Map<String, dynamic>;
-    if (j['version'] != 1 &&
-        j['version'] != 2 &&
-        j['version'] != 3 &&
-        j['version'] != 4)
-      throw const FormatException('Unsupported backup version');
-    j.putIfAbsent('settings', () => <Object>[]);
-    // Validate domain payloads before replacing any data; SQLite validates the row schema.
-    for (final row in j['decisions']) {
-      Decision.fromJson(jsonDecode(row['data']));
-    }
-    for (final row in j['states']) {
-      ReviewState.fromJson(jsonDecode(row['data']));
-    }
-    for (final row in j['events']) {
-      validateReviewLog(Map<String, dynamic>.from(jsonDecode(row['data'])));
-    }
+    // Bounded, depth-checked decoding and domain validation finish off the UI
+    // isolate and before any existing row is deleted.
+    final (version, tables) = await Isolate.run(() => _validatedBackup(text));
     await db.transaction((tx) async {
-      for (final t in [
-        'decisions',
-        'states',
-        'events',
-        'sources',
-        'settings',
-      ]) {
-        await tx.delete(t);
-        for (final row in j[t]) {
-          await tx.insert(t, Map<String, Object?>.from(row));
+      for (final entry in tables.entries) {
+        await tx.delete(entry.key);
+        for (final row in entry.value) {
+          await tx.insert(entry.key, row);
         }
       }
       await _backfillEvents(tx);
-      if (j['version'] < 4) await _normalizeSources(tx);
+      if (version < 4) await _normalizeSources(tx);
     });
   }
 }

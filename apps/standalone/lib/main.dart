@@ -9,6 +9,9 @@ import 'package:trainer_core/trainer_core.dart';
 import 'package:trainer_lichess/trainer_lichess.dart';
 import 'package:trainer_lichess/connection.dart';
 import 'package:study_trainer/auth.dart';
+
+import 'file_import.dart';
+
 import 'package:trainer_flutter/trainer_flutter.dart';
 import 'package:trainer_storage/trainer_storage.dart';
 import 'package:sqflite/sqflite.dart' as mobile;
@@ -256,6 +259,7 @@ class _HomeState extends State<Home> {
   }
 
   Future<void> action(Future<void> Function() f) async {
+    if (busy) return;
     setState(() {
       busy = true;
       message = '';
@@ -265,7 +269,7 @@ class _HomeState extends State<Home> {
       await load();
       if (mounted) setState(() => message = 'Saved locally');
     } catch (e) {
-      if (mounted) setState(() => message = e.toString());
+      if (mounted) setState(() => message = safeActionError(e));
     } finally {
       if (mounted) setState(() => busy = false);
     }
@@ -389,7 +393,8 @@ class _HomeState extends State<Home> {
     } catch (e) {
       if (mounted)
         setState(
-          () => message = 'Review saved. Could not refresh progress: $e',
+          () => message =
+              'Review saved. Could not refresh progress. Reopen the library.',
         );
     }
   }
@@ -602,8 +607,9 @@ class _HomeState extends State<Home> {
                         : () => action(() async {
                             final result = await FilePicker.pickFile();
                             if (result != null)
-                              pgn.text = utf8.decode(
-                                await result.readAsBytes(),
+                              pgn.text = await readImportFile(
+                                result,
+                                maxBytes: maxPgnBytes,
                               );
                           }),
                     child: const Text('Open PGN file'),
@@ -613,7 +619,7 @@ class _HomeState extends State<Home> {
                     child: const Text('Import / refresh same source'),
                   ),
                   const Text(
-                    'Connect in Settings to import private studies. Keep local source IDs and chapter Event names stable on refresh.',
+                    'PGN limit: 5 MB, 1,000 chapters and 50,000 positions. Connect in Settings for private studies. Keep local source IDs and chapter Event names stable on refresh.',
                   ),
                 ] else if (tab == 2) ...[
                   Text(
@@ -775,6 +781,28 @@ class _HomeState extends State<Home> {
                   ),
                   TextButton(
                     onPressed: () => action(() async {
+                      final accepted = await showDialog<bool>(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          title: const Text('Export readable backup?'),
+                          content: const Text(
+                            'This file contains your studies, including private study text, and review history. '
+                            'It is not encrypted. Keep it in protected storage and share it only with people you trust. '
+                            'Login tokens are not included.',
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.pop(context, false),
+                              child: const Text('Cancel'),
+                            ),
+                            FilledButton(
+                              onPressed: () => Navigator.pop(context, true),
+                              child: const Text('Export backup'),
+                            ),
+                          ],
+                        ),
+                      );
+                      if (accepted != true) return;
                       final bytes = utf8.encode(await widget.store.backup());
                       await FilePicker.saveFile(
                         fileName: 'study-trainer-backup.json',
@@ -792,7 +820,7 @@ class _HomeState extends State<Home> {
                           builder: (context) => AlertDialog(
                             title: const Text('Replace local training data?'),
                             content: const Text(
-                              'This replaces your studies, schedules and review history. Export a backup first.',
+                              'This replaces your studies, schedules and review history. Export a backup first. Backup limit: 25 MB and 100,000 total rows.',
                             ),
                             actions: [
                               TextButton(
@@ -808,7 +836,10 @@ class _HomeState extends State<Home> {
                         );
                         if (accepted == true) {
                           await widget.store.restore(
-                            utf8.decode(await result.readAsBytes()),
+                            await readImportFile(
+                              result,
+                              maxBytes: maxBackupBytes,
+                            ),
                           );
                           await recover();
                         }
@@ -850,3 +881,15 @@ class _HomeState extends State<Home> {
 }
 
 ImportResult parseImport((String, String) args) => importPgn(args.$1, args.$2);
+
+/// Only deliberately public exception messages may reach the UI.
+String safeActionError(Object error) => switch (error) {
+  InputLimitException e => e.message,
+  ConnectionException e => e.message,
+  StudyDownloadException e =>
+    'Study download failed (${e.status}). Existing offline data was retained.',
+  DailyLimitException _ => 'Daily training limit reached.',
+  FormatException _ =>
+    'Invalid file or study. Check its format and supported limits.',
+  _ => 'Could not complete the operation. Please retry or reopen the library.',
+};

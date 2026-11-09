@@ -1,0 +1,26 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: pub
+    directory: /apps/standalone
+    schedule:
+      interval: weekly
+  - package-ecosystem: pub
+    directory: /packages/trainer_core
+    schedule:
+      interval: weekly
+  - package-ecosystem: pub
+    directory: /packages/trainer_flutter
+    schedule:
+      interval: weekly
+  - package-ecosystem: pub
+    directory: /packages/trainer_storage
+    schedule:
+      interval: weekly
+  - package-ecosystem: pub
+    directory: /packages/trainer_lichess
+    schedule:
+      interval: weekly
