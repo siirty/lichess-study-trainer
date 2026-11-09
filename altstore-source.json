@@ -1,0 +1,36 @@
+{
+  "name": "Study Trainer",
+  "subtitle": "Offline Lichess study practice",
+  "description": "Independent GPL study trainer. Free personal signing through AltStore Classic; refresh every seven days. Not affiliated with Lichess.",
+  "iconURL": "https://raw.githubusercontent.com/siirty/lichess-study-trainer/main/apps/standalone/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png",
+  "website": "https://github.com/siirty/lichess-study-trainer",
+  "tintColor": "#629924",
+  "apps": [
+    {
+      "name": "Study Trainer",
+      "bundleIdentifier": "org.studytrainer.standalone",
+      "developerName": "Study Trainer contributors",
+      "localizedDescription": "Import Lichess studies or PGN, train either side, and keep spaced-repetition progress offline. Includes hints, review history and backups. Independent engineering preview; no account required for local PGN.",
+      "iconURL": "https://raw.githubusercontent.com/siirty/lichess-study-trainer/main/apps/standalone/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "buildVersion": "1",
+          "marketingVersion": "iOS preview 0.1.0",
+          "date": "2026-11-09T14:51:11.583452+00:00",
+          "downloadURL": "https://github.com/siirty/lichess-study-trainer/releases/download/ios-preview-v0.1.0/study-trainer-ios-unsigned.ipa",
+          "size": 22986724,
+          "minOSVersion": "15.0",
+          "localizedDescription": "Native iPhone build. Sign locally with AltStore Classic. Free-account installations require seven-day renewal."
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [
+          "keychain-access-groups"
+        ],
+        "privacy": {}
+      }
+    }
+  ],
+  "news": []
+}

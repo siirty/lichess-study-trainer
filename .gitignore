@@ -16,3 +16,5 @@ build/
 *.xcarchive/
 *.xcresult/
 .DS_Store
+
+__pycache__/

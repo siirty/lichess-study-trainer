@@ -3,6 +3,21 @@
 A GPL-3.0 Flutter implementation of decision-based training for Lichess studies.
 Independent project; no Lichess endorsement. **Engineering preview, not a production release.**
 
+## Install on iPhone using Windows
+
+[Download the iPhone preview](https://github.com/siirty/lichess-study-trainer/releases/tag/ios-preview-v0.1.0)
+and follow the [Windows installation guide](docs/install-iphone-windows.md).
+Use AltStore Classic with your own free Apple account; no Mac or paid developer membership is
+required. Free signing needs renewal every seven days through AltServer on Windows.
+iOS 15 or later is required. The iPhone release build and a native simulator import → board move
+→ save → reopen/backup test passed [macOS CI](https://github.com/siirty/lichess-study-trainer/actions/runs/42635436689).
+
+After installing AltStore, add this source URL:
+
+```text
+https://raw.githubusercontent.com/siirty/lichess-study-trainer/main/altstore-source.json
+```
+
 ## Run
 
 Use Flutter 3.47.9 / Dart 3.13.7 (the versions validated against current Lichess mobile).
