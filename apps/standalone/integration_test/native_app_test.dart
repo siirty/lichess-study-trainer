@@ -43,15 +43,16 @@ void main() {
         await waitFor(tester, find.text('Start due reviews'));
         await tester.tap(find.text('Import'));
         await waitFor(tester, find.text('Import or refresh'));
+        final sourceField = find.byKey(const ValueKey('importSource'));
+        final pgnField = find.byKey(const ValueKey('importPgn'));
+        await tester.ensureVisible(sourceField);
+        await tester.enterText(sourceField, 'local:native-test');
+        FocusManager.instance.primaryFocus?.unfocus();
+        await tester.pumpAndSettle();
+        await tester.ensureVisible(pgnField);
+        await tester.pumpAndSettle();
         await tester.enterText(
-          find.widgetWithText(TextField, 'Study URL or stable local source ID'),
-          'local:native-test',
-        );
-        await tester.enterText(
-          find.widgetWithText(
-            TextField,
-            'Paste PGN (multiple chapters supported)',
-          ),
+          pgnField,
           '[Event "Native test"]\n\n1. e4 {Central control} e5 *',
         );
         await tester.testTextInput.receiveAction(TextInputAction.done);

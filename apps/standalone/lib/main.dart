@@ -572,6 +572,7 @@ class _HomeState extends State<Home> {
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                   TextField(
+                    key: const ValueKey('importSource'),
                     controller: source,
                     decoration: const InputDecoration(
                       labelText: 'Study URL or stable local source ID',
@@ -594,6 +595,7 @@ class _HomeState extends State<Home> {
                           }),
                   ),
                   TextField(
+                    key: const ValueKey('importPgn'),
                     controller: pgn,
                     minLines: 5,
                     maxLines: 12,
