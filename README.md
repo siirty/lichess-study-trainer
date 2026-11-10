@@ -66,13 +66,16 @@ See [verification](docs/verification.md), [architecture](docs/architecture.md),
 
 ## Android preview
 
-A development-signed arm64 APK is supplied with this source snapshot. It supports Android 7.0+
-(API 24), targets API 36 and was built using Flutter's AOT release mode. Native installation and
-OAuth callback testing still require a device. See docs/verification.md for build/signature evidence.
+Every push to `main` builds a test APK (arm64, Android 7.0+). To install it on a phone:
 
-```sh
-adb install -r lichess-study-trainer-arm64-preview.apk
-```
+1. Open the latest successful [checks run on main](https://github.com/siirty/lichess-study-trainer/actions/workflows/check.yml?query=branch%3Amain+event%3Apush)
+   while signed in to GitHub, and download the `android-test-apk` artifact (kept 14 days).
+2. Unzip it in Files, optionally compare the APK with `SHA256SUMS.txt`, and tap the APK.
+   Allow installs from that app when Android asks.
+
+Each build is signed with a new throwaway test key. To install a newer build, export a backup,
+uninstall the old app, install, then restore. Only use APKs from this repository's `main` runs;
+this is a personal test build, not a distributable release.
 
 For a standard SDK installation, rebuild from apps/standalone with:
 

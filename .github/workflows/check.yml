@@ -39,3 +39,22 @@ jobs:
           channel: stable
       - run: flutter pub get --enforce-lockfile && flutter build apk --debug --target-platform android-arm64
         working-directory: apps/standalone
+      # Test APK for personal devices. Only builds of main are uploaded, so pull
+      # requests from forks can never publish an APK on this repository's pages.
+      # Each run signs with a fresh, throwaway debug key: installing a newer run
+      # means uninstalling first (export a backup), and nobody else can sign updates.
+      - name: Build test APK
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        working-directory: apps/standalone
+        run: |
+          flutter build apk --release --target-platform android-arm64
+          mkdir -p ../../android-test
+          cp build/app/outputs/flutter-apk/app-release.apk ../../android-test/study-trainer-android-test.apk
+          cd ../../android-test && sha256sum study-trainer-android-test.apk > SHA256SUMS.txt && cat SHA256SUMS.txt
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        with:
+          name: android-test-apk
+          path: android-test/
+          retention-days: 14
+          if-no-files-found: error
