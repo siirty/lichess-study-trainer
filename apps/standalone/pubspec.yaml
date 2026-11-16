@@ -21,7 +21,7 @@ dependencies:
   sqflite_common_ffi: ^2.3.6
   path_provider: ^2.1.5
   http: ^1.5.0
-  file_picker: ^13.3.2
+  file_picker: ^13.3.3
   path: ^1.9.1
 dev_dependencies:
   integration_test:
