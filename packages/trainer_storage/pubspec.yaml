@@ -9,4 +9,4 @@ dependencies:
     path: ../trainer_core
 dev_dependencies:
   test: ^1.25.0
-  sqflite_common_ffi: ^2.3.6
+  sqflite_common_ffi: ^2.4.7
